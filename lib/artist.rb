@@ -16,18 +16,18 @@ attr_accessor :name, :songs
     @songs
   end
 
-  def self.find_or_create_by_name(name)
-    @@all.detect do |artist_name|
-      self.new(name) if artist_name != name
-    end
+  def save
+    @@all << self
   end
 
   def self.all
     @@all
   end
 
-  def save
-    @@all << self
+  def self.find_or_create_by_name(name)
+    @@all.detect do |artist_name|
+      self.new(name) if artist_name != name
+    end
   end
 
   def print_songs
