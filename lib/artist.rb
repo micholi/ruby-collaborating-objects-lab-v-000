@@ -25,7 +25,7 @@ attr_accessor :name, :songs
   end
 
   def self.find_or_create_by_name(name)
-    @@all.tap do |artist_name|
+    @@all.each do |artist_name|
       self.new(name) if artist_name != name
     end
   end
